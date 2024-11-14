@@ -1,0 +1,12 @@
+<div class="container my-3 p-3 shadow text-center">
+<h1 class="text-center">Lists</h1>
+<ul class="list-group">
+  <% @lists.each do |list| %>
+    <li class="list-group-item p-3 my-1 shadow">
+      <%= link_to list.name, list_path(list), class: "text-decoration-non" %>
+      </li>
+  <% end %>
+</ul>
+
+<p class="my-3"><%= link_to "add a list", new_list_path %></p>
+</div>

@@ -15,14 +15,15 @@
             <div class="card-title mt-2 p-3 fw-bold fs-5 ">
             <%= bookmark.movie["title"] %>
             </div>
-            <div class="card-body bg-info rounded-pill shadow">
-            <%= bookmark.comment %>
+            <div class="card-body rounded-5 p-3">
+            <img src="https://image.tmdb.org/t/p/w300<%= bookmark.movie["poster_url"] %>" class="rounded-5 p-3" alt="">
             </div>
-            <div class="card-body">
-            <img src="https://image.tmdb.org/t/p/w200<%= bookmark.movie["poster_url"] %>" alt="" class="rounded p-3">
+            <div class="card-body bg-success bg-opacity-50 rounded-2 shadow mb-3">
+            <%= bookmark.movie["overview"]%>
             </div>
             <div class="card-footer">
-            <%= bookmark.movie["overview"] %>
+            <i class="fa-solid fa-quote-left"></i>
+            <%= bookmark.comment %>
             </div>
           </div>
       <% end %>
@@ -31,5 +32,7 @@
     <p><%= link_to lists_path, class:"text-black" do %>
       <i class="fa-solid fa-house"></i>
     <% end %></p>
-<p><%= link_to "Add movies", new_list_bookmark_path(@list) %></p>
+<p><%= link_to new_list_bookmark_path(@list) do %></p>
+<div class="btn btn-success">Add a movie</div>
+<% end %>
 </div>

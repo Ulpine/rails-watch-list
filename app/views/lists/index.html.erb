@@ -1,12 +1,23 @@
-<div class="container my-3 p-3 shadow text-center">
-<h1 class="text-center">Lists</h1>
-<ul class="list-group">
-  <% @lists.each do |list| %>
-    <li class="list-group-item p-3 my-1 shadow">
-      <%= link_to list.name, list_path(list), class: "text-decoration-non" %>
-      </li>
-  <% end %>
-</ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.all-free-download.com/images/graphiclarge/vector_black_and_white_3d_movie_film_293686.jpg');">
+  <div class="container">
+  <h1 class="text-center">Your personal lists of movies</h1>
+  </div>
+</div>
 
-<p class="my-3"><%= link_to "add a list", new_list_path %></p>
+<div class="container my-3 p-3 shadow text-center">
+    <h2>My lists</h2>
+  <div class="row cols-12 cols-sm-4">
+    <% @lists.each do |list| %>
+      <div class="card-category shadow m-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key %>%')">
+
+              <div class="card-title mt-2 p-3 fw-bold fs-5 ">
+                <%= link_to list.name, list_path(list), class: "text-decoration-none text-reset fw-bold" %>
+              </div>
+      </div>
+    <% end %>
+  </div>
+
+<p class="my-3"><%= link_to new_list_path, class:"text-black" do %></p>
+<div class="btn btn-success">Add a list</div>
+<% end %>
 </div>

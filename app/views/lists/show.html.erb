@@ -1,13 +1,24 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, height: 400, crop: :fill %>')">
+  <h1 class="shadow"><%= @list.name %></h1>
+</div>
+
+
 <div class="container text-center my-3 p-3 shadow">
-  <h1 class="border shadow"><%= @list.name %></h1>
+
+
+
+
+
   <div class="row cols-12 cols-sm-4">
       <% @list.bookmarks.each do |bookmark| %>
           <div class="card shadow m-4" style="width: 30rem">
-            <div class="card-title">
+            <div class="card-title mt-2 p-3 fw-bold fs-5 ">
             <%= bookmark.movie["title"] %>
             </div>
-            <div class="card-body">
+            <div class="card-body bg-info rounded-pill shadow">
             <%= bookmark.comment %>
+            </div>
+            <div class="card-body">
             <img src="https://image.tmdb.org/t/p/w200<%= bookmark.movie["poster_url"] %>" alt="" class="rounded p-3">
             </div>
             <div class="card-footer">
@@ -15,7 +26,10 @@
             </div>
           </div>
       <% end %>
+
 </div>
-<p><%= link_to "Home", lists_path %></p>
+    <p><%= link_to lists_path, class:"text-black" do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %></p>
 <p><%= link_to "Add movies", new_list_bookmark_path(@list) %></p>
 </div>
